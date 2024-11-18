@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'items/index'
+  get 'items/new'
+  get 'items/create'
+  devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
