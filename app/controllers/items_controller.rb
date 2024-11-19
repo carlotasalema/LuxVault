@@ -12,12 +12,20 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(items_params)
-    if @item.save
+    # @item = Item.new(items_params)
+    # if @item.save
+    #   redirect_to items_path
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
+    @item = current_user.items.create!(item_params)
+
+    if @item.save!
       redirect_to items_path
     else
       render :new, status: :unprocessable_entity
     end
+
   end
 
   def edit
@@ -26,7 +34,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update(items_params)
+    @item.update(item_params)
     redirect_to item_path(@item)
   end
 
@@ -38,7 +46,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def items_params
-    params.require(:items).permit(:name, :category, :price_per_day, :description, :user_id, :photo)
+  def item_params
+    params.require(:item).permit(:name, :category, :price_per_day, :description, :user_id, :photo)
   end
 end
