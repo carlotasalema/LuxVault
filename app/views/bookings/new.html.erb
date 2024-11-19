@@ -1,0 +1,8 @@
+
+<div class="container w-50 bg-light m-auto p-3">
+  <%= simple_form_for [@item, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.submit class:'main-button border-0' %>
+  <% end %>
+</div>
