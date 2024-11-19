@@ -4,5 +4,5 @@ class Item < ApplicationRecord
   has_one_attached :photo
   validates :name, :category, :price_per_day, :description, presence: true
   validates :category, acceptance: { accept: ['clothing', 'accessories', 'jewelry'] }
-  validates :description, length: { in: 50..400 }
+  validates :description, length: { in: 5..400 }
 end
