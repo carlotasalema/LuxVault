@@ -1,2 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render "shared/navbar" %>
+
+<section class="banner">
+  <%= image_tag "LOGO.png", alt: "LOGO" %>
+  <h1>LUX VAULT</h1>
+  <h2>RENT LUXURIOUS CLOTHINGS</h2>
+</section>
+
+<section class="search">
+  <form action="" class="form-search">
+    <label for=""></label>
+    <input
+      type="text"
+      class="input"
+      placeholder="WHAT ARE YOU LOOKING FOR?"
+    />
+    <label for=""></label>
+    <input type="text" class="input" id="input" />
+    <label for=""></label>
+    <input type="text" class="input" />
+    <a href="" class="btn btn-search" draggable="false">DISCOVER</a>
+  </form>
+</section>
