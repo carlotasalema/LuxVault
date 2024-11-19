@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  # Skip authentication for the 'index' action (ALL ITEMS page)
+  skip_before_action :authenticate_user!, only: [:index]
   def index
     @items = Item.all
   end
