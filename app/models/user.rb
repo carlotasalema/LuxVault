@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :bookings
+  validates :username, :first_name, :last_name, presence: true
+  validates :username, uniqueness: true
 end
