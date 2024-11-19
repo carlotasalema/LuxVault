@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @categories = ['clothing', 'accessories', 'jewelry']
   end
 
   def create
