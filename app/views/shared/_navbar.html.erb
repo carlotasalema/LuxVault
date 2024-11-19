@@ -6,7 +6,10 @@
 
       <%= link_to "ALL ITEMS", items_path, class: "secondary-button"%>
 
+
       <% if user_signed_in? %>
+        <%= link_to "MY BOOKINGS", root_path, class: "secondary-button"%> <%# TODO: change this link LATER!!!!!! %>
+        <%= link_to "ADD ITEM", new_item_path, class: "secondary-button"%>
         <%= link_to "ACCOUNT", edit_user_registration_path,class: "main-button" %>
       <% else %>
         <%= link_to "LOGIN", user_session_path, class: "main-button" %>

@@ -8,8 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts 'destroying users'
-
 User.destroy_all
+
+
 
 puts 'creating users'
 
@@ -27,7 +28,6 @@ puts 'done'
 
 puts 'destroying items'
 Item.destroy_all
-
 puts 'creating items'
 
 users = User.all
