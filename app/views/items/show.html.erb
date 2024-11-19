@@ -1,11 +1,28 @@
 <div class="container">
-  <div>
-     <%= link_to "Go back", items_path, class: "text-decoration-none p-1 text-secondary"%>
+  <div class= "mb-5">
+     <h5><%= link_to '<i class="fa-solid fa-arrow-left"></i> Go back'.html_safe, items_path, class: "text-decoration-none p-1 text-secondary"%></h5>
   </div>
-  <div class="d-flex">
+  <div class="d-flex gap-5 bg-light p-4 shadow-sm border">
     <div class="image-show">
-      <%= cl_image_tag @item.photo.key, height: 300, crop: :fill, class: "" %>
+      <%= cl_image_tag @item.photo.key, height: 500, crop: :fill, class: "border rounded" %>
       <%# <img src="https://aya.eco/cdn/shop/products/04_silk_yellow_gold_boho_wedding_slip_dress_by_aya_sacred_wear_02.jpg?v=1629463877" alt="silk gown"> %>
+    </div>
+    <div class="d-flex flex-column justify-content-between gap-5 m-3">
+      <div class="">
+        <div class= "d-flex justify-content-between">
+          <h2><strong><%= @item.name %> </strong></h2>
+          <%= link_to @item.category, items_path, class: "btn btn-outline-secondary text-secondary" %>
+        </div>
+        <div class= "d-flex align-items-end">
+          <h2 class="mb-0 me-2 mt-3"><%= @item.price_per_day %> €</h2>
+          <p class="m-1">/per day</p>
+        </div>
+        </div>
+        <div class="">
+          <h2>Description</h2>
+          <p class="mb-4 mt-2"><%= @item.description %></p>
+          <%= link_to "BOOK", new_item_booking_path(@item), class: "btn main-button" %>
+      </div>
     </div>
   </div>
 </div>
