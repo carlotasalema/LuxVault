@@ -9,7 +9,7 @@
 #   end
 puts 'destroying users'
 Item.destroy_all
-User.destroy_all
+
 
 puts 'creating users'
 
@@ -26,7 +26,7 @@ end
 puts 'done'
 
 puts 'destroying items'
-
+User.destroy_all
 puts 'creating items'
 
 users = User.all
