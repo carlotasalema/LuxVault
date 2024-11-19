@@ -1,11 +1,11 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
 
-<%= simple_form_for(@item) do |f| %>
-  <%= f.input :name %>
-  <%= f.association :category %>
-  <%= f.input :price_per_day %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="container w-50 bg-light m-auto p-3">
+  <%= simple_form_for(@item) do |f| %>
+    <%= f.input :name, class:'bg-light'%>
+    <%= f.input :category, :collection => %w[clothing accessories jewelry] %>
+    <%= f.input :price_per_day %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class:'main-button border-0' %>
+  <% end %>
+</div>

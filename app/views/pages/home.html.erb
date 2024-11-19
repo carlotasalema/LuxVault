@@ -1,5 +1,3 @@
-<%= render "shared/navbar" %>
-
 <section class="banner">
   <%= image_tag "LOGO.png", alt: "LOGO" %>
   <h1>LUX VAULT</h1>
@@ -18,6 +16,6 @@
     <input type="text" class="input" id="input" />
     <label for=""></label>
     <input type="text" class="input" />
-    <a href="" class="btn btn-search" draggable="false">DISCOVER</a>
+    <%= link_to "DISCOVER", items_path, class: "search-button" %>
   </form>
 </section>

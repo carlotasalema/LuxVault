@@ -1,8 +1,15 @@
 <header>
     <nav>
-      <a href="" draggable="false">
-        <%= image_tag "LOGO.png", alt: "LOGO", width: "40px" %>
-      </a>
-      <%= link_to "Login", new_user_session_path, class: "btn btn-login" %>
+      <%= link_to root_path do %>
+        <%= image_tag "LOGO.png", alt: "LXVAULT", width: "40px" %>
+      <% end %>
+
+      <%= link_to "ALL ITEMS", items_path, class: "secondary-button"%>
+
+      <% if user_signed_in? %>
+        <%= link_to "ACCOUNT", edit_user_registration_path,class: "main-button" %>
+      <% else %>
+        <%= link_to "LOGIN", user_session_path, class: "main-button" %>
+      <% end %>
     </nav>
 </header>
