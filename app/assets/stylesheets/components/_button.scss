@@ -1,0 +1,22 @@
+.btn {
+  padding: 10px 20px;
+  background-color: $emerald;
+  border-radius: 3px;
+  color: $white;
+}
+
+.btn-search {
+  border-radius: 0px;
+  background-color: $gold;
+  margin-left: 6px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.btn-search:hover:focus {
+  background-color: $gold;
+}
