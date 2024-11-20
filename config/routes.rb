@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :items do
-    resources :bookings, only: %i[new create destroy]
+    resources :bookings, only: %i[new create]
   end
 
-  resources :bookings, only: :update
+  resources :bookings, only: %i[index update destroy]
 
   devise_for :users
   root to: "pages#home"

@@ -1,11 +1,4 @@
-.btn {
-  padding: 10px 20px;
-  background-color: $emerald;
-  border-radius: 3px;
-  color: $white;
-}
-
-.btn-search {
+.search-button {
   border-radius: 0px;
   background-color: $gold;
   margin-left: 6px;
@@ -15,8 +8,22 @@
   align-items: center;
   width: 100%;
   flex-grow: 1;
+  color: $white;
+  padding: 10px 20px;
 }
 
-.btn-search:hover:focus {
-  background-color: $gold;
+.main-button, .secondary-button {
+  padding: 10px 20px;
+  background-color: $emerald;
+  border-radius: 3px;
+  color: $white;
+}
+
+.secondary-button{
+  background: none;
+  color: $gold;
+}
+
+.main-button:hover {
+  background-color: #003D3C;
 }
