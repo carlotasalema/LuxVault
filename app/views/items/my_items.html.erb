@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 class="text-start ms-3"><strong>My Items:</strong></h2>
+</div>
+<br>
+
+<div class="container">
+  <% if @items == [] %>
+    <p class="ms-3"> You don't have any items.</p>
+    <%= link_to "Add your first item!", new_item_path, class: "main-button mt-5 ms-3" %>
+  <% else %>
+    <div class = "d-flex w-auto flex-wrap">
+      <% @items.each do |item| %>
+        <div class="card m-3 shadow-sm" style="width: 18rem;">
+          <%= cl_image_tag item.photo.key, height:250, crop: :fill, class:"bg-light card-img-top px-3 pt-3" %>
+          <div class="card-body bg-light d-flex justify-content-between">
+            <h5 class="card-title"><%= item.name %></h5>
+            <div class="dropdown">
+              <button class="main-button dropdown-toggle py-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><%= link_to "See details", item_path(item.id), class: "dropdown-item"%></li>
+                <li><%= link_to "Delete item", item_path(item.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this item?"}, class: "dropdown-item"%></li>
+                <li><%= link_to "Edit item", edit_item_path(item.id), class: "dropdown-item"%></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="mt-5 ms-3">
+      <%= link_to "Add another item!", new_item_path, class: "main-button" %>
+    </div>
+  <% end %>
+</div>
