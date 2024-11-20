@@ -5,6 +5,10 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def my_items
+    @items = Item.where(user_id: current_user.id)
+  end
+
   def show
     @item = Item.find(params[:id])
   end
@@ -44,7 +48,7 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path, status: :see_other
+    redirect_to my_items_path, status: :see_other
   end
 
   private

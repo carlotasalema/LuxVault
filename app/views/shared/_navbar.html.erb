@@ -8,9 +8,17 @@
 
 
       <% if user_signed_in? %>
-        <%= link_to "MY BOOKINGS", root_path, class: "secondary-button"%> <%# TODO: change this link LATER!!!!!! %>
-        <%= link_to "ADD ITEM", new_item_path, class: "secondary-button"%>
-        <%= link_to "ACCOUNT", edit_user_registration_path,class: "main-button" %>
+        <div class="dropdown">
+          <button class="main-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ACCOUNT
+          </button>
+          <ul class="dropdown-menu">
+            <li><%= link_to "My bookings", bookings_path, class: "dropdown-item"%></li>
+            <li><%= link_to "My items", my_items_path, class: "dropdown-item"%></li>
+            <li><%= link_to "Booking requests", my_items_path, class: "dropdown-item"%></li>
+            <li><%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item"%></li>
+          </ul>
+        </div>
       <% else %>
         <%= link_to "LOGIN", user_session_path, class: "main-button" %>
       <% end %>
