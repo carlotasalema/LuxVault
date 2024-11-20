@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+
+  def index
+    @bookings = Booking.where(user_id: current_user.id)
+  end
+
   def new
     @booking = Booking.new
     @item = Item.find(params[:item_id])
