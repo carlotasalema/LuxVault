@@ -8,7 +8,11 @@
       <div class="card m-3 shadow-sm" style="width: 18rem;">
         <%= cl_image_tag booking.item.photo.key, height:250, crop: :fill, class:"bg-light card-img-top px-3 pt-3" %>
         <div class="card-body bg-light d-flex flex-column justify-content-between">
-          <p class="text-secondary"><%= booking.status %></p>
+          <% if booking.status == "pending" %>
+            <p class="text-secondary"><%= booking.status %></p>
+          <% else %>
+            <p class="text-success"><%= booking.status %></p>
+          <% end %>
           <h5 class="card-title"><%= booking.item.name %></h5>
           <div class="mt-3">
             <p class="card-text mb-3"><strong>From: </strong><%= booking.start_date %></p>
