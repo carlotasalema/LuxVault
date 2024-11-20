@@ -1,17 +1,17 @@
 <div class="container m-5">
-  <h2 class="text-center">Experience luxury, without the commitment</h2>
+  <h2 class="text-center"><strong>Experience luxury, without the commitment</strong></h2>
 </div>
 <br>
 <div class="container">
   <div class = "d-flex w-auto flex-wrap">
     <% @items.each do |item| %>
-      <div class="card m-3" style="width: 18rem;">
+      <div class="card m-3 shadow-sm" style="width: 18rem;">
         <%= cl_image_tag item.photo.key, height:250, crop: :fill, class:"bg-light card-img-top px-3 pt-3" %>
         <div class="card-body bg-light d-flex flex-column justify-content-between">
           <h5 class="card-title"><%= item.name %></h5>
-          <div>
-            <p class="card-text mb-1"><i class="fa-solid fa-euro-sign p-1"></i><%= item.price_per_day%></p>
-            <%= link_to "More info", item_path(item.id), class: "main-button text-decoration-none px-2 w-50 mb-1"%>
+          <div class="pb-2">
+            <p class="card-text mb-3"><strong><i class="fa-solid fa-euro-sign p-1"></i><%= item.price_per_day.round%></strong>/per day</p>
+            <%= link_to "More info", item_path(item.id), class: "main-button text-decoration-none px-2 w-50"%>
           </div>
         </div>
       </div>
