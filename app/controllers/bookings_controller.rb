@@ -33,6 +33,21 @@ class BookingsController < ApplicationController
     redirect_to items_path, status: :see_other
   end
 
+  def booking_requests
+    @items = Item.where(user_id: current_user.id)
+    @items.each do |item|
+      @bookings = Booking.where(status: 'pending', item_id: item.id)
+    end
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    if @booking.save
+      redirect_to booking_requests_path, status: :see_other
+    end
+  end
+
   private
 
   def booking_params
