@@ -10,6 +10,8 @@
 puts 'destroying users'
 User.destroy_all
 
+
+
 puts 'creating users'
 
 15.times do
