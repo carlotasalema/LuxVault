@@ -13,11 +13,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.item = @item
     @booking.user = current_user
-      if @booking.save!
-        redirect_to item_path(@item)
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @booking.save!
+      redirect_to item_path(@item)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # def update
