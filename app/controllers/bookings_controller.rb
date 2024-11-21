@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = Booking.where(user_id: current_user.id)
   end
@@ -24,6 +23,7 @@ class BookingsController < ApplicationController
   def update
     @booking.find(params[:id])
     @booking.update(booking_params)
+    @booking.item.update(status: "available")
     redirect_to items_path
   end
 
@@ -42,10 +42,10 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status = "accepted"
-    if @booking.save
-      redirect_to booking_requests_path, status: :see_other
-    end
+    @booking.update(status: "accepted")
+    flash[:notice] = "Booking has been accepted successfully."
+    @booking.save
+    redirect_to booking_requests_path, status: :see_other
   end
 
   private
