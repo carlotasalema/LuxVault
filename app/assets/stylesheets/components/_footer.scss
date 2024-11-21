@@ -1,0 +1,84 @@
+.footer{
+  background-color: $emerald;
+  padding: 32px;
+}
+
+.footer-h2{
+  color: $ecru;
+  font-family: "Prata", serif;
+}
+
+.footer-body{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 2em;
+}
+
+.footer-span{
+  color: $pearl;
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.footer-p{
+  color: $ecru;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+// FORM
+.footer-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid $ecru;
+  padding: 0 0 4px;
+}
+
+.footer-form-input{
+  border: none;
+  background-color: $emerald;
+  color: $pearl;
+  flex-grow: 1;
+}
+
+.footer-form-input::placeholder{
+  color: $pearl;
+}
+
+.footer-form-input:focus{
+  outline: none;
+}
+
+.footer-form-button-subscribe{
+  border: none;
+  background-color: $emerald;
+  color: $ecru;
+}
+
+// BOTTOM
+.footer-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $ecru;
+  padding: 32px 0 0;
+}
+
+// SOCIALS
+.footer-socials{
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.footer-socials i{
+  color: $parchment;
+}
+
+.footer-bottom span{
+  display: block;
+  margin: 0;
+}
