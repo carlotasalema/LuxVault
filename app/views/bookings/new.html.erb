@@ -4,6 +4,6 @@
     <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_unavailable_value: @item.unavailable_dates.to_json } } %>
     <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
     <%= f.submit class:'main-button border-0' %>
-
+    <%= link_to "Cancel", item_path(@item), class: 'text-danger ps-3'%>
   <% end %>
 </div>
