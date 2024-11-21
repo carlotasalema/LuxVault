@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   # Skip authentication for the 'index' action (ALL ITEMS page)
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @items = Item.all
+    if params[:category].present?
+      @items = Item.where(category: params[:category])
+    else
+      @items = Item.all
+    end
+    @categories = ["clothing", "jewelry", "accessories"]
   end
 
   def my_items
@@ -28,7 +33,7 @@ class ItemsController < ApplicationController
     @item = current_user.items.create!(item_params)
 
     if @item.save!
-      redirect_to items_path
+      redirect_to my_items_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,7 +47,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to item_path(@item)
+    redirect_to my_items_path
   end
 
   def destroy
