@@ -44,10 +44,10 @@ class BookingsController < ApplicationController
   def accept
     @input = params[:input]
     @booking = Booking.find(params[:id])
-    @booking.status = @input
-    if @booking.save
-      redirect_to booking_requests_path, status: :see_other
-    end
+    @booking.update(status: "accepted")
+    flash[:notice] = "Booking has been accepted successfully."
+    @booking.save
+    redirect_to booking_requests_path, status: :see_other
   end
 
   private
