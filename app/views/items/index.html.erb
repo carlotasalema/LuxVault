@@ -1,6 +1,19 @@
-<div class="container m-5">
-  <h2 class="text-center"><strong>Experience luxury, without the commitment</strong></h2>
+<div class="container">
+  <h2 class="text-center my-5"><strong>Experience luxury, without the commitment</strong></h2>
+
+<div class="d-flex flex-row-reverse me-4">
+  <%= form_with(url: items_path, method: :get, local: true) do %>
+    <%# <label for="category">Filter by Category:</label> %>
+    <select name="category" id="category" class="form-select" onchange="this.form.submit()">
+    <option value="">All Categories</option>
+    <% @categories.each do |category| %>
+      <option value="<%= category %>" <%= 'selected' if params[:category] == category %>><%= category %></option>
+    <% end %>
+    </select>
+  <% end %>
 </div>
+</div>
+
 <br>
 <div class="container">
   <div class = "d-flex w-auto flex-wrap">
