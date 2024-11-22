@@ -2,38 +2,28 @@
   <h2 class="text-start ps-3"><strong>My Bookings:</strong></h2>
 </div>
 <br>
-<div class="card-container">
-  <div class="d-flex w-auto flex-wrap">
+<div class="container">
+  <div class = "d-flex w-auto flex-wrap">
     <% @bookings.each do |booking| %>
-      <div class="container m-3 shadow-sm" style="width: 18rem;">
-        <!-- Booking card wrapper -->
-        <div class="wrapper bg-light">
-          <!-- Banner image -->
-          <div class="banner-image">
-            <%= cl_image_tag booking.item.photo.key, height: 250, crop: :fill, class: "w-100" %>
-          </div>
-          <!-- Title and Description -->
-          <h1><%= booking.item.name %></h1>
-          <p>
-            <strong>Status:</strong>
-            <% if booking.status == "pending" %>
-              <span class="text-secondary"><%= booking.status %></span>
-            <% else %>
-              <span class="text-success"><%= booking.status %></span>
-            <% end %>
-            <br />
-            <strong>From:</strong> <%= booking.start_date %><br />
-            <strong>To:</strong> <%= booking.end_date %><br />
-            <strong>Total:</strong>
-            <%= (booking.end_date - booking.start_date).to_i * booking.item.price_per_day.round %> €
-          </p>
-        </div>
-        <!-- Button wrapper -->
-        <div class="button-wrapper">
-          <%= link_to "Details", "#", class: "btn outline" %>
-          <% if booking.status != "canceled" %>
-            <%= link_to "Cancel", booking_path(booking), class: "btn fill text-white", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?" }, authenticity_token: true %>
+      <div class="card m-3 shadow-sm" style="width: 18rem;">
+        <%= cl_image_tag booking.item.photo.key, height:250, crop: :fill, class:"bg-light card-img-top px-3 pt-3" %>
+        <div class="card-body bg-light d-flex flex-column justify-content-between">
+          <% if booking.status == "pending" %>
+            <p class="text-secondary"><%= booking.status %></p>
+          <% else %>
+            <p class="text-success"><%= booking.status %></p>
           <% end %>
+          <h5 class="card-title"><%= booking.item.name %></h5>
+          <div class="mt-3">
+            <p class="card-text mb-3"><strong>From: </strong><%= booking.start_date %></p>
+            <p class="card-text mb-3"> <strong>To: </strong><%= booking.end_date %></p>
+            <div class="d-flex justify-content-between align-items-end">
+              <p class="card-text m-0"><strong>Total: <%= (booking.end_date - booking.start_date).to_i * booking.item.price_per_day.round%><i class="fa-solid fa-euro-sign p-1"></i></strong></p>
+              <% if booking.status != "canceled" %>
+                <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?" }, class: "text-danger text-decoration-none", authenticity_token: true %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
