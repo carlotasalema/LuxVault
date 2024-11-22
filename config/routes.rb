@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "booking-requests", to: "bookings#booking_requests"
 
   post "booking-requests/:id/accept", to: "bookings#accept", as: :accept
+  patch "booking-requests/:id/reject", to: "bookings#reject", as: :reject
 
   # Defines the root path route ("/")
   # root "posts#index"

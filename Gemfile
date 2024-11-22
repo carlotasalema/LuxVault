@@ -6,6 +6,7 @@ ruby "3.3.5"
 gem "rails", "~> 7.1.5"
 gem "devise"
 
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
