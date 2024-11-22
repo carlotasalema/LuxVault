@@ -5,3 +5,4 @@ class Booking < ApplicationRecord
   validates :status, acceptance: { accept: ['pending', 'accepted', 'available'] }
   validates :end_date, comparison: { greater_than: :start_date }
 end
+

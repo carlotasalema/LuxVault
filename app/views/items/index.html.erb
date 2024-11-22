@@ -1,17 +1,20 @@
 <div class="container">
   <h2 class="text-center my-5"><strong>Experience luxury, without the commitment</strong></h2>
-
-<div class="d-flex flex-row-reverse me-4">
-  <%= form_with(url: items_path, method: :get, local: true) do %>
-    <%# <label for="category">Filter by Category:</label> %>
-    <select name="category" id="category" class="form-select border border-0" onchange="this.form.submit()">
-    <option value="">All Categories</option>
-    <% @categories.each do |category| %>
-      <option value="<%= category %>" <%= 'selected' if params[:category] == category %>><%= category %></option>
-    <% end %>
-    </select>
-  <% end %>
-</div>
+  
+  <div class ="d-flex justify-content-between align-items-center">
+    <p class="ms-3 mb-0"><%= "Results for \"#{params[:query]}\"" if params[:query].present? %></p>
+    <div class="d-flex flex-row-reverse me-4">
+      <%= form_with(url: items_path, method: :get, local: true) do %>
+        <%# <label for="category">Filter by Category:</label> %>
+        <select name="category" id="category" class="form-select border border-0" onchange="this.form.submit()">
+        <option value="">All Categories</option>
+        <% @categories.each do |category| %>
+          <option value="<%= category %>" <%= 'selected' if params[:category] == category %>><%= category %></option>
+        <% end %>
+        </select>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <br>
