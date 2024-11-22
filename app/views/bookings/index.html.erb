@@ -3,6 +3,10 @@
 </div>
 <br>
 <div class="container">
+ <% if @bookings == [] %>
+    <p class="ms-3"> You don't have any bookings yet.</p>
+    <%= link_to "Book an item!", items_path, class: "main-button mt-5 ms-3" %>
+  <% else %>
   <div class = "row">
     <% @bookings.each do |booking| %>
       <div class = "col-md-4 mt-2 mb-5">
@@ -21,12 +25,13 @@
               </p>
               <div class="d-flex justify-content-between align-items-end">
                 <p class="card-text m-0"><strong>Total: <%= (booking.end_date - booking.start_date).to_i * booking.item.price_per_day.round%><i class="fa-solid fa-euro-sign p-1"></i></strong></p>
-                  <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?" }, class: "text-danger text-decoration-none", authenticity_token: true %> 
+                  <%= link_to "Cancel", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?" }, class: "text-danger text-decoration-none", authenticity_token: true %>
               </div>
             </div>
           </div>
         </div>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>
