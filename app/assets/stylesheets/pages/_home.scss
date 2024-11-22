@@ -5,8 +5,16 @@ Specific CSS for your home-page
   box-sizing: border-box;
 }
 
-html {
+html, body {
   background-color: $parchment;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  flex: 1;
 }
 
 .banner {
@@ -40,4 +48,13 @@ html {
 
 .input:focus {
   outline: none;
+}
+
+.dropdown-menu{
+  padding: 0;
+}
+
+.dropdown-item{
+  border: 1px solid $gold;
+  color: $gold;
 }

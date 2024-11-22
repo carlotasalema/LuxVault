@@ -13,6 +13,7 @@
 }
 
 .main-button, .secondary-button {
+  border: none;
   padding: 10px 20px;
   background-color: $emerald;
   border-radius: 3px;
@@ -50,4 +51,3 @@
   border: 1px solid $gold;
   backdrop-filter: blur(15px);
 }
-
