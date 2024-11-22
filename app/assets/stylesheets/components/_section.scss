@@ -3,7 +3,6 @@ h2 {
   color: $emerald;
   font-family: "Prata", serif;
   font-size: 84px;
-  text-align: center;
   font-weight: 400;
   letter-spacing: 0.96px;
   list-style: 40px;
@@ -18,4 +17,8 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.text-align {
+  text-align: center;
 }

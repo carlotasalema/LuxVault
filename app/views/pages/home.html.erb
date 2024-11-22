@@ -1,7 +1,7 @@
 <section class="banner">
   <%= image_tag "LOGO.png", alt: "LOGO" %>
-  <h1>LUX VAULT</h1>
-  <h2>RENT LUXURIOUS WEAR PIECES</h2>
+  <h1 class="text-align">LUX VAULT</h1>
+  <h2 class="text-align">RENT LUXURIOUS CLOTHINGS</h2>
 </section>
 
 <section class="search">
@@ -18,51 +18,4 @@
     <input type="text" class="input" />
     <%= link_to "DISCOVER", items_path, class: "search-button" %>
   </form>
-</section>
-
-<section class="gifts-section">
-  <div class="gifts-container">
-    <%= image_tag "Model-Book", class: "gifts-img", alt: "Model"%>
-    <h2 class="gifts-h2">Gifts for her</h2>
-    <button class="gold-border-bottom-button gifts-button">EXPLORE THE SELECTION</button>
-  </div>
-  <div class="gifts-container">
-    <%= image_tag "Model-ForRent", class:"gifts-img", alt: "Model"%>
-    <h2 class="gifts-h2">Gifts for him</h2>
-    <button class="gold-border-bottom-button gifts-button">EXPLORE THE COLECTION</button>
-  </div>
-</section>
-
-<h2 class="trending-h2">TRENDING THIS SEASON</h2>
-<section class="trending">
-  <%= image_tag "Model-Trending.jpg", class: "trending-img", alt: "Model"%>
-  <div class="trending-text">
-    <p class="trending-p">GUCCI GIFT: TO THE MOUNTAINS</p>
-    <span class="trending-span">Presenting the second act of the four-part holiday campaign by Creative Director Sabato De Sarno, where shared experiences are etched into memory during a relaxing stop towards the festivities. </span>
-    <button class="gold-border-bottom-button">EXPLORE</button>
-  </div>
-</section>
-
-<h2 class="categories-h2">LUX SERVICES</h2>
-<section class="categories">
-  <div class="cat-card">
-    <%= image_tag "Model-Clothing-Category.jpg", class: "cat-card-img", alt: "Model" %>
-      <p class="cat-card-p">CLOTHING</p>
-      <span class="cat-card-span">Enjoy priority access to the clothing of your choice at the time and date that suits you.</span>
-      <button class="gold-border-bottom-button">Book Clothing</button>
-  </div>
-
-  <div class="cat-card">
-    <%= image_tag "Model-Accessory-Category.jpg", class: "cat-card-img", alt: "Model" %>
-      <p class="cat-card-p">ACCESSORIES</p>
-      <span class="cat-card-span">Order your accessories and collect them from your preferred boutique.</span>
-      <button class="gold-border-bottom-button">Book Accessory</button>
-  </div>
-
-  <div class="cat-card">
-    <%= image_tag "Model-Jewel-Category.jpg", class: "cat-card-img", alt: "Model" %>
-      <p class="cat-card-p">JEWELRY</p>
-      <span class="cat-card-span">Emboss select jewels from the collection to create a truly unique style.</span>
-      <button class="gold-border-bottom-button">Book Jewel</button>
-  </div>
 </section>
