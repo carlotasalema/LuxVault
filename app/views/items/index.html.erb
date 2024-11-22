@@ -6,7 +6,7 @@
     <div class="d-flex flex-row-reverse me-4">
       <%= form_with(url: items_path, method: :get, local: true) do %>
         <%# <label for="category">Filter by Category:</label> %>
-        <select name="category" id="category" class="form-select" onchange="this.form.submit()">
+        <select name="category" id="category" class="form-select border border-0" onchange="this.form.submit()">
         <option value="">All Categories</option>
         <% @categories.each do |category| %>
           <option value="<%= category %>" <%= 'selected' if params[:category] == category %>><%= category %></option>
@@ -26,7 +26,10 @@
         <div class="card-body bg-light d-flex flex-column justify-content-between">
           <h5 class="card-title"><%= item.name %></h5>
           <div class="pb-2">
-            <p class="card-text mb-3"><strong><i class="fa-solid fa-euro-sign p-1"></i><%= item.price_per_day.round%></strong>/per day</p>
+            <div class="d-flex">
+              <p class="card-text mb-3"><strong><i class="fa-solid fa-euro-sign p-1"></i><%= item.price_per_day.round%></strong></p>
+              <p class="fw-lighter">/day</p>
+            </div>
             <%= link_to "More info", item_path(item.id), class: "main-button text-decoration-none px-2 w-50"%>
           </div>
         </div>

@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @booking.item = @item
     @booking.user = current_user
     if @booking.save!
-      redirect_to item_path(@item)
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to items_path, status: :see_other
+    redirect_to request.referer, status: :see_other
   end
 
   def booking_requests
