@@ -5,16 +5,15 @@
 </section>
 
 <section class="search">
-   <%= form_with url: items_path, method: :get, class: "form-search" do %>
+    <%= form_with url: items_path, method: :get, class: "form-search shadow p-3 mb-5 rounded" do %>
       <%= text_field_tag :query,
-            params[:query],
-            class: "form-control input bg-white",
-            placeholder: "WHAT ARE YOU LOOKING FOR?"
-        %>
+          params[:query],
+          class: "form-control input bg-white",
+          placeholder: "WHAT ARE YOU LOOKING FOR?",
+          required: true
+      %>
       <%= submit_tag "DISCOVER", name: "", class: "search-button" %>
     <% end %>
-
-
 </section>
 
 <section class="gifts-section">
