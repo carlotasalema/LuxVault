@@ -1,7 +1,12 @@
 h1,
 h2 {
   color: $emerald;
+  font-family: "Prata", serif;
   font-size: 84px;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.96px;
+  list-style: 40px;
 }
 
 h2 {
@@ -9,7 +14,7 @@ h2 {
 }
 
 section {
-  margin: 32px 150px;
+  margin: 64px 150px;
   display: flex;
   justify-content: center;
   align-items: center;
