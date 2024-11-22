@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   def index
     if params[:category].present?
       @items = Item.where(category: params[:category])
+    elsif params[:query].present?
+      sql_subquery = "name ILIKE :query OR description ILIKE :query"
+      @items = Item.where(sql_subquery, query: "%#{params[:query]}%")
     else
       @items = Item.all
     end
