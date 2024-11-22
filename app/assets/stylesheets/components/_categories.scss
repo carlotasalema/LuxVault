@@ -1,0 +1,49 @@
+.categories-h2{
+  font-family: "Prata", serif;
+  font-size: 32px;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 0.96px;
+  list-style: 40px;
+  margin-bottom: 48px;
+}
+
+.categories{
+  display: flex;
+  gap: 2em;
+}
+
+.cat-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  width: 350px;
+  flex-grow: 1;
+}
+
+.cat-card-img{
+  cursor: pointer;
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cat-card-p{
+  color: $gold;
+  margin: 0; // remove p default margin
+  font-family: "Prata", serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.48px;
+  line-height: 24px;
+}
+
+.cat-card-span{
+  color: $emerald;
+  padding: 0 16px;
+  text-align: center;
+  height: 150px;
+}

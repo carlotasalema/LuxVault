@@ -1,15 +1,16 @@
-  lass BookingsController < ApplicationController
+
+class BookingsController < ApplicationController
+  before_action :find_item, only: [:new, :create]
+
   def index
     @bookings = Booking.where(user_id: current_user.id)
   end
 
   def new
     @booking = Booking.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @booking = Booking.new(booking_params)
     @booking.item = @item
     @booking.user = current_user
@@ -20,12 +21,11 @@
     end
   end
 
-  def update
-    @booking.find(params[:id])
-    @booking.update(booking_params)
-    @booking.item.update(status: "available")
-    redirect_to items_path
-  end
+  # def update
+  #   @booking.find(params[:id])
+  #   @booking.update(booking_params)
+  #   redirect_to items_path
+  # end
 
   def destroy
     @booking = Booking.find(params[:id])
@@ -35,12 +35,15 @@
 
   def booking_requests
     @items = Item.where(user_id: current_user.id)
+    @bookings = []
     @items.each do |item|
-      @bookings = Booking.where(status: 'pending', item_id: item.id)
+      @bookings << Booking.where(status: 'pending', item_id: item.id)
     end
+    @bookings = @bookings.flatten
   end
 
   def accept
+    @input = params[:input]
     @booking = Booking.find(params[:id])
     @booking.update(status: "accepted")
     flash[:notice] = "Booking has been accepted successfully."
@@ -50,6 +53,11 @@
 
   private
 
+  def find_item
+    @item = Item.find(params[:item_id])
+  end
+
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
+end

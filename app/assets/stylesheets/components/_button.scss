@@ -27,3 +27,27 @@
 .main-button:hover {
   background-color: #003D3C;
 }
+
+// CATEGORIES, TRENDING
+.gold-border-bottom-button {
+  background: none;
+  color: $gold;
+  border: none;
+  border-bottom: 1px solid $gold;
+  font-weight: 500;
+  text-align: end;
+}
+
+// GIFTS
+.gifts-container .gold-border-bottom-button{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.gifts-button{
+  border: 1px solid $gold;
+  backdrop-filter: blur(15px);
+}
+
