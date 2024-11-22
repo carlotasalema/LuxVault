@@ -1,3 +1,4 @@
+
 class BookingsController < ApplicationController
   before_action :find_item, only: [:new, :create]
 
