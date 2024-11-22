@@ -17,8 +17,8 @@
 
         </div>
         <div class= "d-flex align-items-end">
-          <h2 class="mb-0 me-2 mt-3"><%= @item.price_per_day %> €</h2>
-          <p class="m-1">/per day</p>
+          <h2 class="mb-0 me-2 mt-3"><%= @item.price_per_day.round %> €</h2>
+          <p class="m-1 fw-lighter">/day</p>
         </div>
       </div>
       <div class="w-100">

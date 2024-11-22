@@ -5,31 +5,29 @@
 </section>
 
 <section class="search">
-  <form action="" class="form-search">
-    <label for=""></label>
-    <input
-      type="text"
-      class="input"
-      placeholder="WHAT ARE YOU LOOKING FOR?"
-    />
-    <label for=""></label>
-    <input type="text" class="input" id="input" />
-    <label for=""></label>
-    <input type="text" class="input" />
-    <%= link_to "DISCOVER", items_path, class: "search-button" %>
-  </form>
+    <%= form_with url: items_path, method: :get, class: "form-search shadow p-3 mb-5 rounded" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control input bg-white",
+          placeholder: "WHAT ARE YOU LOOKING FOR?",
+          required: true
+      %>
+      <%= submit_tag "DISCOVER", name: "", class: "search-button" %>
+    <% end %>
 </section>
 
 <section class="gifts-section">
   <div class="gifts-container">
-    <%= image_tag "Model-Book", class: "gifts-img", alt: "Model"%>
+    <%= image_tag "modelbook.jpg", class: "gifts-img", alt: "Model"%>
     <h2 class="gifts-h2">Gifts for her</h2>
-    <button class="gold-border-bottom-button gifts-button">EXPLORE THE SELECTION</button>
+    <%# <button class="gold-border-bottom-button gifts-button">EXPLORE THE SELECTION</button> %>
+    <%= link_to "EXPLORE THE SELECTION", items_path, class: "gold-border-bottom-button gifts-button" %>
   </div>
   <div class="gifts-container">
-    <%= image_tag "Model-ForRent", class:"gifts-img", alt: "Model"%>
+    <%= image_tag "Model-ForRent.jpg", class:"gifts-img", alt: "Model"%>
     <h2 class="gifts-h2">Gifts for him</h2>
-    <button class="gold-border-bottom-button gifts-button">EXPLORE THE COLECTION</button>
+    <%# <button class="gold-border-bottom-button gifts-button">EXPLORE THE COLECTION</button> %>
+    <%= link_to "EXPLORE THE COLECTION", items_path, class: "gold-border-bottom-button gifts-button" %>
   </div>
 </section>
 
@@ -39,7 +37,7 @@
   <div class="trending-text">
     <p class="trending-p">GUCCI GIFT: TO THE MOUNTAINS</p>
     <span class="trending-span">Presenting the second act of the four-part holiday campaign by Creative Director Sabato De Sarno, where shared experiences are etched into memory during a relaxing stop towards the festivities. </span>
-    <button class="gold-border-bottom-button">EXPLORE</button>
+    <%= link_to "EXPLORE", "https://www.gucci.com/pt/en_gb/st/stories/article/gucci-gift-to-the-mountains", class: "gold-border-bottom-button" %>
   </div>
 </section>
 
@@ -49,20 +47,20 @@
     <%= image_tag "Model-Clothing-Category.jpg", class: "cat-card-img", alt: "Model" %>
       <p class="cat-card-p">CLOTHING</p>
       <span class="cat-card-span">Enjoy priority access to the clothing of your choice at the time and date that suits you.</span>
-      <button class="gold-border-bottom-button">Book Clothing</button>
+      <%= link_to "Book Clothing", items_path(category: "clothing"),class: "gold-border-bottom-button" %>
   </div>
 
   <div class="cat-card">
     <%= image_tag "Model-Accessory-Category.jpg", class: "cat-card-img", alt: "Model" %>
       <p class="cat-card-p">ACCESSORIES</p>
       <span class="cat-card-span">Order your accessories and collect them from your preferred boutique.</span>
-      <button class="gold-border-bottom-button">Book Accessory</button>
+      <%= link_to "Book Accessories", items_path(category: "accessories"),class: "gold-border-bottom-button" %>
   </div>
 
   <div class="cat-card">
     <%= image_tag "Model-Jewel-Category.jpg", class: "cat-card-img", alt: "Model" %>
       <p class="cat-card-p">JEWELRY</p>
       <span class="cat-card-span">Emboss select jewels from the collection to create a truly unique style.</span>
-      <button class="gold-border-bottom-button">Book Jewel</button>
+      <%= link_to "Book Jewelry", items_path(category: "jewelry"),class: "gold-border-bottom-button" %>
   </div>
 </section>
